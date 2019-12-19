@@ -1,0 +1,12 @@
+INSERT INTO candidato (nome, id_cargo) VALUES ('João Machado', '1');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Pedro Mendonça', '1');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Júlia Pereira', '1');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Marcella Moraes', '1');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Marcella Moraes', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Pedro Mendonça', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Maria Montana', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Jerônimo Fagundes', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Juliana Gonçalves', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Aldo Neves', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('Fernando Faria', '2');
+INSERT INTO candidato (nome, id_cargo) VALUES ('André Casagranda Merlo', '3');
