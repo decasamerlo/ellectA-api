@@ -5,10 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "cargo")
+@Table(name = "cargo", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class Cargo {
 
 	@Id
