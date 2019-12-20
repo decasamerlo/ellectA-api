@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.decasamerlo.ellectA.api.model.Eleitor;
 import br.com.decasamerlo.ellectA.api.repository.EleitorRepository;
+import br.com.decasamerlo.ellectA.api.service.EleitorService;
 
 @RestController
 @RequestMapping("/eleitores")
@@ -23,6 +24,9 @@ public class EleitorController {
 	@Autowired
 	private EleitorRepository eleitorRepository;
 	
+	@Autowired
+	private EleitorService eleitorService;
+	
 	@GetMapping
 	public List<Eleitor> listar() {
 		return eleitorRepository.findAll();
@@ -30,8 +34,8 @@ public class EleitorController {
 	
 	@PostMapping
 	public ResponseEntity<Eleitor> criar(@Valid @RequestBody Eleitor eleitor) {
-		Eleitor eleitorSalvo = eleitorRepository.save(eleitor);
-		return ResponseEntity.status(HttpStatus.CREATED).body(eleitorSalvo);
+		Eleitor eleitorSalvo = eleitorService.salvar(eleitor);
+		return ResponseEntity.status(HttpStatus.OK).body(eleitorSalvo);
 	}
 
 }

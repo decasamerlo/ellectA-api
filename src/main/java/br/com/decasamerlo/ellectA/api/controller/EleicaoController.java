@@ -30,8 +30,8 @@ public class EleicaoController {
 	
 	@PostMapping
 	public ResponseEntity<Eleicao> criar(@Valid @RequestBody Eleicao eleicao) {
-		Eleicao categoriaSalva = eleicaoRepository.save(eleicao);
-		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaSalva);
+		Eleicao eleicaoSalva = eleicaoRepository.save(eleicao);
+		return ResponseEntity.status(HttpStatus.CREATED).body(eleicaoSalva);
 	}
 
 }
