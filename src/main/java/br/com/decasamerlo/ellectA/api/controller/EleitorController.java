@@ -1,6 +1,7 @@
 package br.com.decasamerlo.ellectA.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +38,12 @@ public class EleitorController {
 	public ResponseEntity<Eleitor> criar(@Valid @RequestBody Eleitor eleitor) {
 		Eleitor eleitorSalvo = eleitorService.salvar(eleitor);
 		return ResponseEntity.status(HttpStatus.OK).body(eleitorSalvo);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Eleitor> buscarPeloId(@PathVariable Long id) {
+		Optional<Eleitor> eleitor = eleitorRepository.findById(id);
+		return eleitor.isPresent() ? ResponseEntity.ok(eleitor.get()) : ResponseEntity.notFound().build();
 	}
 
 }
