@@ -22,9 +22,9 @@ public class CandidatoController {
 	
 	@Autowired
 	private CandidatoRepository candidatoRepository;
-	
+
 	@GetMapping
-	public List<Candidato> listar() {
+	public List<Candidato> pesquisar() {
 		return candidatoRepository.findAll();
 	}
 	
