@@ -1,5 +1,6 @@
 package br.com.decasamerlo.ellectA.api.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,8 +31,13 @@ public class EleicaoController {
 	private VotoRepository votoRepository;
 	
 	@GetMapping
-	public List<Eleicao> listar() {
-		return eleicaoRepository.findAll();
+	public List<Eleicao> listar(@RequestParam(required=false, defaultValue="false") Boolean apenasAtivas) {
+		System.out.println("buscando " + apenasAtivas);
+		if (apenasAtivas) {
+			return eleicaoRepository.findByDataInicioLessThanAndDataFimGreaterThan(LocalDate.now(), LocalDate.now());
+		} else {
+			return eleicaoRepository.findAll();
+		}
 	}
 	
 	@PostMapping
