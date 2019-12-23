@@ -11,4 +11,6 @@ public interface VotoRepository extends JpaRepository<Voto, Long> {
 	
 	List<Voto> findByProtocoloEleicaoId(Long idEleicao);
 	
+	List<Voto> findByProtocoloId(Long idProtocolo);
+	
 }
